@@ -311,7 +311,15 @@ All the packets were transmitted and hence host is up.
 We can use Nmap to see the services running on the target and the version of the services; NMAP can be very important at this stage 
 to know more about the target.
 \begin{verbatim}
+        # Nmap 7.95 scan initiated Fri Mar 21 07:20:50 2025 as: /usr/lib/nmap/nmap -sS -oN services.txt 192.168.0.104
+        Nmap scan report for 192.168.0.104
+        Host is up (0.00026s latency).
+        Not shown: 999 filtered tcp ports (no-response)
+        PORT     STATE SERVICE
+        3389/tcp open  ms-wbt-server
+        MAC Address: 08:00:27:DC:BC:E6 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)
         
+        # Nmap done at Fri Mar 21 07:20:55 2025 -- 1 IP address (1 host up) scanned in 5.07 seconds      
 \end{verbatim}
 
 \end{document}
