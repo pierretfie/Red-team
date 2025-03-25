@@ -327,6 +327,33 @@ The RDP protocol is a great vulnerability to a computer and we will be exploitin
 educational purposes.
 For us to exploit this service; we need to know the username and password to the machine for which we have none.
 Username enumarations are harder to work on current windows updates.
+\subsubsection{RDP Username Enumeration Technique}
+
+One technique that still works on Windows 11 involves analyzing timing differences in RDP responses. This technique exploits the fact that Windows RDP service responds differently when a valid username is provided versus an invalid one:
+
+\begin{enumerate}
+    \item When a valid username is provided, the RDP service takes slightly longer to respond as it processes the authentication attempt
+    \item When an invalid username is provided, the response is typically faster as the service quickly determines the username doesn't exist
+\end{enumerate}
+
+Tools like \texttt{crowbar} or \texttt{hydra} can be used with timing analysis to potentially identify valid usernames. For example:
+
+\begin{verbatim}
+crowbar -b rdp -s 192.168.0.104/32 -u userlist.txt -n 1
+\end{verbatim}
+
+\subsubsection{Defensive Measures}
+To protect against such enumeration attempts:
+
+\begin{enumerate}
+    \item Implement account lockout policies to prevent brute force attempts
+    \item Use Network Level Authentication (NLA) - already enabled by default on Windows 11
+    \item Configure RDP to only accept connections through a VPN or RDP Gateway
+    \item Monitor and alert on multiple failed RDP authentication attempts
+    \item Consider implementing time delays for failed attempts to make timing analysis less reliable
+    \item Use strong passwords and enable two-factor authentication where possible
+\end{enumerate}
+
 \subsubsection{port 3389}
 
 \end{document}
