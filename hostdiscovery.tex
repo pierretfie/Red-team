@@ -376,12 +376,23 @@ This ensures that the lock screen does not show the current user’s details.
 \begin{verbatim}
         New-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name "dontdisplaylockeduserid" -Value 3 -PropertyType DWord -Force
 \end{verbatim}
+
+3 = Do not display user information.
+
+Other values:
+
+1 = Show full name
+
+2 = Show username only
+
 3. Disable Username Display at Sign-in;
 Prevents usernames from appearing at sign-in.
 
 \begin{verbatim}
         New-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name "DontDisplayUserName" -Value 1 -PropertyType DWord -Force
 \end{verbatim}
+
+Restart the system for full effect.
 \subsubsection{port 3389}
 
 \end{document}
