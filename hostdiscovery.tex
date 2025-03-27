@@ -371,7 +371,12 @@ This prevents Windows from displaying the last logged-in user at the sign-in scr
 \begin{verbatim}
         New-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name "dontdisplaylastusername" -Value 1 -PropertyType DWord -Force
 \end{verbatim}
-2.
+2. Hide Username When the Screen is Locked;
+This ensures that the lock screen does not show the current user’s details.
+\begin{verbatim}
+        New-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name "dontdisplaylockeduserid" -Value 3 -PropertyType DWord -Force
+\end{verbatim}
+3.
 \subsubsection{port 3389}
 
 \end{document}
