@@ -364,7 +364,7 @@ Linux Login Prompt: On some Linux-based systems, a terminal login might reveal h
 Of course there are other ways like OSINT means.
 Locking your screen doesn't always offer protection to your machine, your username is exposed if the attacker has physical access to the machine.
 It might sound very lame, but it is a vulnerability of it's own.
-\section{Concealing username from login screen}
+\section{Concealing username from login screen(Windows)}
 To hide usernames on the Windows login and lock screens use:
 \textbf{1. Hide Last Logged-in Username (Login Screen)}
 This prevents Windows from displaying the last logged-in user at the sign-in screen.
@@ -376,6 +376,13 @@ This ensures that the lock screen does not show the current user's details.
 \begin{verbatim}
         New-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name "dontdisplaylockeduserid" -Value 3 -PropertyType DWord -Force
 \end{verbatim}
+3 = Do not display user information.
+
+Other values:
+
+1 = Show full name
+
+2 = Show username only
 
 \textbf{3. Disable Username Display at Sign-in;}
 Prevents usernames from appearing at sign-in.
