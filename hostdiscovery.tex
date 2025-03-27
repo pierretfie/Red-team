@@ -366,26 +366,18 @@ Locking your screen doesn't always offer protection to your machine, your userna
 It might sound very lame, but it is a vulnerability of it's own.
 \section{Concealing username from login screen}
 To hide usernames on the Windows login and lock screens use:
-1.Hide Last Logged-in Username (Login Screen)
+\textbf{1. Hide Last Logged-in Username (Login Screen)}
 This prevents Windows from displaying the last logged-in user at the sign-in screen.
 \begin{verbatim}
         New-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name "dontdisplaylastusername" -Value 1 -PropertyType DWord -Force
 \end{verbatim}
-2. Hide Username When the Screen is Locked;
-This ensures that the lock screen does not show the current user’s details.
+\textbf{2. Hide Username When the Screen is Locked;}
+This ensures that the lock screen does not show the current user's details.
 \begin{verbatim}
         New-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Policies\System" -Name "dontdisplaylockeduserid" -Value 3 -PropertyType DWord -Force
 \end{verbatim}
 
-3 = Do not display user information.
-
-Other values:
-
-1 = Show full name
-
-2 = Show username only
-
-3. Disable Username Display at Sign-in;
+\textbf{3. Disable Username Display at Sign-in;}
 Prevents usernames from appearing at sign-in.
 
 \begin{verbatim}
